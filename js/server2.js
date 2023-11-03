@@ -15,11 +15,17 @@
 // // To get the next sibling of an element, you use the nextElementSibling attribute
 // console.log(nextSibling);
 
-// get all the next siblings of an element
-let current = document.querySelector('.current');
-let nextSibling = current.nextElementSibling;
+// // get all the next siblings of an element
+// let current = document.querySelector('.current');
+// let nextSibling = current.nextElementSibling;
 
-while(nextSibling) {
-    console.log(nextSibling);
-    nextSibling = nextSibling.nextElementSibling;
-}
+// while(nextSibling) {
+//     console.log(nextSibling);
+//     nextSibling = nextSibling.nextElementSibling;
+// }
+
+// Get the previous siblings
+let current = document.querySelector('.current');
+let prevSiblings = current.previousElementSibling;
+
+console.log(prevSiblings);
