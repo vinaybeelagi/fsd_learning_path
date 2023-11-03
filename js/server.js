@@ -23,7 +23,23 @@ let output = document.getElementById("output");
 // JavaScript getElementsByTagName() example
 let btn2 = document.getElementById("btnCount");
 // use addeventlistener to initiate the event of button press
-btn2.addEventListener("click", () => {
-  let heading = document.getElementsByTagName("h2");
-  alert(`the number of H2 tags: ${heading.length}`);
-});
+// btn2.addEventListener("click", () => {
+//   let heading = document.getElementsByTagName("h2");
+//   alert(`the number of H2 tags: ${heading.length}`);
+// });
+
+// JavaScript getElementsByClassName() on an element example
+.
+let menu = document.getElementById("menu");// Get the 'menu' element by its ID
+let items = menu.getElementsByClassName('item');// Get all elements with the class name 'item' within the 'menu' element
+let itemsArray = [...items];// Convert the HTMLCollection into an array for easier manipulation.
+let data = itemsArray.map(i => i.textContent);// Extract the text content of each 'item' element and store it in an array.
+console.log(data);   
+
+
+// let menu = document.getElementById('menu');
+// let items = menu.getElementsByClassName('item');
+
+// let data = [].map.call(items, item => item.textContent);
+
+// console.log(data);
