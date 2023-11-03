@@ -29,14 +29,14 @@ let btn2 = document.getElementById("btnCount");
 // });
 
 // JavaScript getElementsByClassName() on an element example
-.
+// method1:using Spread operator
 let menu = document.getElementById("menu");// Get the 'menu' element by its ID
 let items = menu.getElementsByClassName('item');// Get all elements with the class name 'item' within the 'menu' element
 let itemsArray = [...items];// Convert the HTMLCollection into an array for easier manipulation.
 let data = itemsArray.map(i => i.textContent);// Extract the text content of each 'item' element and store it in an array.
 console.log(data);   
 
-
+// method1:using .call() instead of Spread operator
 // let menu = document.getElementById('menu');
 // let items = menu.getElementsByClassName('item');
 
