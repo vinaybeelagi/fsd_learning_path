@@ -5,4 +5,6 @@
 
 // // Get the first child element
 let content = document.getElementById('menu');
-console.log(content.firstChild.nodeName);
+// console.log(content.firstChild.nodeName);
+// console.log(content.lastElementChild);  `-->Get the last child element`
+console.log(content.children) `-->Get all child elements`
