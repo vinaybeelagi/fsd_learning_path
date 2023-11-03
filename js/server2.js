@@ -25,7 +25,15 @@
 // }
 
 // Get the previous siblings
-let current = document.querySelector('.current');
-let prevSiblings = current.previousElementSibling;
+// let current = document.querySelector('.current');
+// let prevSiblings = current.previousElementSibling;
 
-console.log(prevSiblings);
+// console.log(prevSiblings);
+
+// selects all the previous siblings of the list item
+let current = document.querySelector('.current');
+let prevSibling = current.previousElementSibling;
+while(prevSibling) {
+    console.log(prevSibling);
+    prevSibling = current.previousElementSibling;
+}
