@@ -27,3 +27,40 @@ div.appendChild(h2);
 
 // Append the <div> to the document body
 document.body.appendChild(div);
+
+// Create a new <ul> (unordered list) element
+let ul = document.createElement("ul");
+
+// Set the 'id' attribute of the <ul> to "menu"
+ul.id = "menu";
+
+// Create a new <li> (list item) element
+let li1 = document.createElement("li");
+
+// Set the text content for the first list item
+li1.textContent = "Products";
+
+// Append the first list item to the unordered list
+ul.appendChild(li1);
+
+// Create a new <li> (list item) element
+let li2 = document.createElement("li");
+
+// Set the text content for the second list item
+li2.textContent = "Home";
+
+// Append the second list item to the unordered list
+ul.appendChild(li2);
+
+// Create a new <li> (list item) element
+let li3 = document.createElement("li");
+
+// Set the text content for the third list item
+li3.textContent = "About Us";
+
+// Append the third list item to the unordered list
+ul.appendChild(li3);
+
+// Append the unordered list to the document body
+document.body.appendChild(ul);
+
