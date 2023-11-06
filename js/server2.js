@@ -10,7 +10,7 @@ console.log(teams.firstElementChild)`--> so in order to access first element we 
 console.log(teams.children);`--> so in order to access all the child we need to use children `
 
 // sibblingNode
-let current = document.querySelector(".current");
+
 let nextsib = current.nextElementSibling;
 while(nextsib){
     console.log(nextsib)
@@ -22,6 +22,7 @@ while(prevsib){
     console.log(prevsib)
     prevsib = prevsib.previousElementSibling
 }
+let current = document.querySelector(".current");
 let sibblings = [];
 let prevSib = current.previousElementSibling;
 while(prevSib){
