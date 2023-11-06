@@ -41,12 +41,22 @@ document.body.appendChild(div);
 
 // JavaScript appendChild() method
 // Moving a node within the document
-const firstList = document.querySelector('#first-list')
-const evening = firstList.firstElementChild;
-const secondList = document.querySelector('#second-list')
-secondList.appendChild(evening)
+// const firstList = document.querySelector('#first-list')
+// const evening = firstList.firstElementChild;
+// const secondList = document.querySelector('#second-list')
+// secondList.appendChild(evening)
 
+//   <!-- textContent vs. innerText -->
+// textContent
+// const element = document.getElementById('example');
+// console.log(element.textContent); // Output: "This is bold text."
 
+// // innerText
+// const element1 = document.getElementById('example');
+// console.log(element1.innerText); // Output: ""
+
+let menu = document.getElementById('menu');
+console.log(menu.innerHTML);
 
 
 
