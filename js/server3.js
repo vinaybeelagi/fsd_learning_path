@@ -116,5 +116,7 @@ const element = document.getElementById("note");
 // Output: "This is important text."
 console.log(element.innerText);
 
+let menu  = document.getElementById("menu");
+console.log(menu.innerHTML)
 
 
