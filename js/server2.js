@@ -30,10 +30,28 @@
 
 // console.log(prevSiblings);
 
-// selects all the previous siblings of the list item
-let current = document.querySelector('.current');
-let prevSibling = current.previousElementSibling;
-while(prevSibling) {
-    console.log(prevSibling);
-    prevSibling = current.previousElementSibling;
+// // selects all the previous siblings of the list item
+// let current = document.querySelector('.current');
+// let prevSibling = current.previousElementSibling;
+// while(prevSibling) {
+//     console.log(prevSibling);
+//     prevSibling = current.previousElementSibling;
+// }
+
+// Get all siblings of an element
+let current = document.querySelector(".current");
+let sibblings = [];
+let prevSib = current.previousElementSibling;
+while(prevSib){
+    sibblings.push(prevSib)
+    prevSib = prevSib.previousElementSibling
 }
+sibblings.reverse();
+let nextSib = current.nextElementSibling;
+while(nextSib){
+    sibblings.push(nextSib)
+    nextSib = nextSib.nextElementSibling
+}
+console.log(sibblings.map(e=>e.innerHTML));
+
+
