@@ -28,15 +28,25 @@ document.body.appendChild(div);
 // menu.appendChild(li);
 
 
-// Creating new list items (ul,li) example
-let ul = document.createElement('ul');
-ul.id = "cars"
-let li1 = document.createElement('li');
-li1.textContent='TATA'
-ul.appendChild(li1)
-let li2 = document.createElement('li');
-li2.textContent='Ford'
-ul.appendChild(li2)
-document.body.appendChild(ul);
+// // Creating new list items (ul,li) example
+// let ul = document.createElement('ul');
+// ul.id = "cars"
+// let li1 = document.createElement('li');
+// li1.textContent='TATA'
+// ul.appendChild(li1)
+// let li2 = document.createElement('li');
+// li2.textContent='Ford'
+// ul.appendChild(li2)
+// document.body.appendChild(ul);
+
+// JavaScript appendChild() method
+// Moving a node within the document
+const firstList = document.querySelector('#first-list')
+const evening = firstList.firstElementChild;
+const secondList = document.querySelector('#second-list')
+secondList.appendChild(evening)
+
+
+
 
 
