@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,4 +14,36 @@
         p.before(h1)
     </script>
 </body>
+</html> -->
+
+<!-- example 2-Using JavaScript before() to insert multiple nodes before an element- -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript DOM - before()</title>
+    </head>
+
+    <body>
+        <ul>
+            <li>Angular</li>
+            <li>Vue</li>
+        </ul>
+        <script>
+            const list = document.querySelector('ul');
+
+            const libs = ['React', 'Meteor', 'Polymer'];
+            const items = libs.map((lib) => {
+                const item = document.createElement('li');
+                item.innerText = lib;
+                return item;
+            });
+
+            list.firstChild.before(...items);
+
+        </script>
+    </body>
+
 </html>
