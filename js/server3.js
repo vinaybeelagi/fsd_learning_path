@@ -111,5 +111,12 @@ function transferItem() {
 // Call the transferItem function to move an item from the first list to the second list
 transferItem();
 
+const element = document.getElementById("note");
+ console.log(element.textContent);
+// Output: "This is important text."
+console.log(element.innerText);
+
+let menu  = document.getElementById("menu");
+console.log(menu.innerHTML)
 
 
