@@ -64,3 +64,52 @@ ul.appendChild(li3);
 // Append the unordered list to the document body
 document.body.appendChild(ul);
 
+// Create a new <ul> (unordered list) element
+let ul2 = document.createElement("ul");
+
+// Set the 'id' attribute of the <ul> to "menu"
+ul2.id = "cars";
+
+// Create a new <li> (list item) element
+let li4 = document.createElement("li");
+
+// Set the text content for the first list item
+li4.textContent = "TATA";
+
+// Append the first list item to the unordered list
+ul2.appendChild(li4);
+
+// Create a new <li> (list item) element
+let li5 = document.createElement("li");
+
+// Set the text content for the second list item
+li5.textContent = "Audi";
+
+// Append the second list item to the unordered list
+ul2.appendChild(li5);
+
+// Create a new <li> (list item) element
+let li6 = document.createElement("li");
+
+// Set the text content for the third list item
+li6.textContent = "Ford";
+
+// Append the third list item to the unordered list
+ul2.appendChild(li6);
+
+// Append the unordered list to the document body
+document.body.appendChild(ul2);
+
+function transferItem() {
+    // Remove the first item from the first list
+    ul.removeChild(li1);
+
+    // Append the removed item to the second list
+    ul2.appendChild(li1);
+}
+
+// Call the transferItem function to move an item from the first list to the second list
+transferItem();
+
+
+
