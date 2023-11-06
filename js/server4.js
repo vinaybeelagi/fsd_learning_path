@@ -15,11 +15,25 @@
 // h1.innerText = "Javascript Before Method";
 // p.before(h1);
 
-let ul = document.querySelector("ul");
-const list = ['vue','golang'];
-const items = list.map((i)=>{
-    const item = document.createElement("li");
-    item.innerText = i;
-    return item;
-})
-ul.firstChild.before(...items)
+// let ul = document.querySelector("ul");
+// const list = ['vue','golang'];
+// const items = list.map((i)=>{
+//     const item = document.createElement("li");
+//     item.innerText = i;
+//     return item;
+// })
+// ul.firstChild.before(...items)
+
+ let p = document.querySelector(".select");
+ let h1 = document.createElement("h1");
+ h1.innerText = "Javascript Before Method";
+ p.after(h1);
+
+// let ul1 = document.querySelector("ul");
+// const list1 = ['vue','golang'];
+// const items1 = list1.map((i)=>{
+//     const item = document.createElement("li");
+//     item.innerText = i;
+//     return item;
+// })
+// ul1.lastChild.after(...items1)
