@@ -1,3 +1,4 @@
+
 // console.log("Welcome to Neoito")
 
 // JavaScript getElementById() method example
@@ -56,4 +57,7 @@ for(let i=0;i<items.length;i++){
     console.log(items[i].textContent) 
 }
    
+
+
+console.log("welcome neoito")
 
