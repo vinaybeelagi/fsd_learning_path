@@ -42,16 +42,16 @@
 let current = document.querySelector(".current");
 let sibblings = [];
 let prevSib = current.previousElementSibling;
-while(prevSib){
+while (prevSib) {
     sibblings.push(prevSib)
     prevSib = prevSib.previousElementSibling
 }
 sibblings.reverse();
 let nextSib = current.nextElementSibling;
-while(nextSib){
+while (nextSib) {
     sibblings.push(nextSib)
     nextSib = nextSib.nextElementSibling
 }
-console.log(sibblings.map(e=>e.innerHTML));
+console.log(sibblings.map(e => e.innerHTML));
 
 
