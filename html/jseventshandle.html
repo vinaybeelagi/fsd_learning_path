@@ -6,17 +6,19 @@
     <title>js events</title>
   </head>
   <body>
-    <a href="https://www.javascripttutorial.net/">javascript tutorial</a>
+    <button id="btn">click</button>
 
     <script>
-      let link = document.querySelector("a");
-      link.addEventListener("click", () => {
-        console.log("clicked");
-        event.stopPropagation();
-      });
-      document.body.addEventListener("click", function (event) {
-        console.log("The body was clicked!");
-      });
+      let btn = document.querySelector("#btn");
+
+      // add the event listener
+      let showAlert = function () {
+        alert("Clicked!");
+      };
+      btn.addEventListener("click", showAlert);
+
+      // remove the event listener
+      btn.removeEventListener("click", showAlert);
     </script>
   </body>
 </html>
