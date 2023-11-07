@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Create a <div> element with an id and classes -->
+    <div id="content" class="main red">Javascript Tutorial</div>
+    <script>
+        // Select the element with the id "content"
+        let id = document.querySelector("#content");
+
+        // Add multiple classes to the element
+        id.classList.add("info", "avail", "div");
+
+        // Remove multiple classes from the element
+        id.classList.remove("info", "avail", "div");
+
+        // Replace the "red" class with the "warning" class
+        id.classList.replace('red', 'warning');
+
+        // Toggle the "visible" class, which adds it if not present and removes it if already present
+        id.classList.toggle('visible');
+
+        // Log all the classes currently applied to the element
+        for (let e of id.classList) {
+            console.log(e);
+        }
+    </script>
+</body>
+
+</html>
