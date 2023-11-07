@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemenent attribute</title>
+</head>
+<body>
+    <input type="text" id="username" secured="true">
+    <input type="text" id="username1" tabindex="1">
+    <script>
+        let input = document.querySelector('#username')
+        for(let attr of input.attributes){
+            console.log(`${attr.name}=${attr.value}`)
+        }
+
+        
+        let input2 = document.querySelector('#username');
+        // attribute--> property
+        input2.setAttribute('tabindex',2);
+        console.log(input2.tabIndex);
+
+        // property --> attribute
+        input2.tabIndex = 3;
+        console.log(input2.getAttribute('tabIndex'));
+
+        let input3 =document.querySelector('#username1');
+        // attribute -> property: OK
+        input.setAttribute('value','guest');
+        console.log(input.value);
+        // property -> attribute: doesn't change
+        input2.value = 'admin';
+        console.log(input.getAttribute('value'));
+    </script>
+</body>
+</html>
