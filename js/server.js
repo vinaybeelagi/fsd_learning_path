@@ -1,48 +1,63 @@
 
-const p = document.getElementById("message");
-console.log(p) 
-// we get output as "A paragraph"
-// getElementByName
-let btn = document.getElementById('btnRate');
-// here button is connected by id "btnRate"
-        let output = document.getElementById('output');
-// here we use getElementById to display the output 
-        btn.addEventListener('click', () => {
-            let rates = document.getElementsByName('rate');
-            rates.forEach((rate) => {
-                if (rate.checked) {
-                    output.innerText = `You selected: ${rate.value}`;
-                }
-            });
+// console.log("Welcome to Neoito")
 
-        });
-        // here we  use addeventlistener to initiate the event of button press and  get a statement depicting the rating we select
+// JavaScript getElementById() method example
+// const p = document.getElementById("message");
+// console.log(p);
+// // Output:<p id="message">A paragraph</p>
 
-        // getElementByTagName
-        let btn2 = document.getElementById("btn");
-        btn2.addEventListener('click',()=>{
-            let heading = document.getElementsByTagName("h2")
-            alert(`The total number of H2 headings are : ${heading.length}`)
-        })
-// here we get the pop up alert giving us the number of h2 headings in our HTML page
+// // JavaScript getElementsByName() method
+// let btn = document.getElementById("btnRate");
+// // here button is connected by id "btnRate"
+// let output = document.getElementById("output");
+// here we use getElementById to display the output
+// // btn.addEventListener("click", () => {
+//   let rates = document.getElementsByName("rate");
+//   rates.forEach((rate) => {
+//     if (rate.checked) {
+//       output.innerText = `You selected: ${rate.value}`;
+//     }
+//   });
+// });
+// here we  use addeventlistener to initiate the event of button press and  get a statement depicting the rating we select
 
-// getElementsByClassNAme
-let menu = document.getElementById("menu");
-let items = menu.getElementsByClassName('items'); `--> This will provide us items in form of HTML collection `
-let itemsArray = [...items];`---> this will convert HTML collection to array`
+// JavaScript getElementsByTagName() example
+// let btn2 = document.getElementById("btnCount");
+// use addeventlistener to initiate the event of button press
+// btn2.addEventListener("click", () => {
+//   let heading = document.getElementsByTagName("h2");
+//   alert(`the number of H2 tags: ${heading.length}`);
+// });
 
-let data = itemsArray.map(i => i.textContent);`---> here we can use map to iterate over all the text elements `
+// JavaScript getElementsByClassName() on an element example
+// method1:using Spread operator
+// let menu = document.getElementById("menu");// Get the 'menu' element by its ID
+// let items = menu.getElementsByClassName('item');// Get all elements with the class name 'item' within the 'menu' element
+// let itemsArray = [...items];// Convert the HTMLCollection into an array for easier manipulation.
+// let data = itemsArray.map(i => i.textContent);// Extract the text content of each 'item' element and store it in an array.
+// console.log(data);   
 
-console.log(data);
+// method1:using .call() instead of Spread operator
+// let menu = document.getElementById('menu');
+// let items = menu.getElementsByClassName('item');
 
-// querryselector method
+// let data = [].map.call(items, item => item.textContent);
 
-const firstEle = document.querySelector(".items");
-console.log(firstEle.textContent);`---> here we get the first element from the list as it matches all the items but returns only first item`
+// console.log(data);
 
-// querryselectorAll method
-const ele= document.querySelectorAll(".items");`----> Here nodelist gets stored in variable 'ele' which is further accessed one by one similar to array i.e ele[i]`
-for(let i = 0;i<ele.length;i++){
-    console.log(ele[i].textContent)
+// // query Selector
+// const firstItem =document.querySelector('.item');
+// console.log(firstItem.textContent);
+
+// querySelectorAll()
+const items = document.querySelectorAll('.item')
+// // Use a "for" loop to iterate through the NodeList, starting from index 0.
+for (let i = 0; i < items.length; i++) {
+    // Access each item within the NodeList by its index (i) and log its text content to the console.
+    console.log(items[i].textContent)
 }
+
+
+
+console.log("welcome neoito")
 
