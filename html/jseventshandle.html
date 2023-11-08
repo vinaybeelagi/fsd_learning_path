@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js events</title>
+  </head>
+  <body>
+    <button id="btn">click</button>
+
+    <script>
+      let btn = document.querySelector("#btn");
+
+      // add the event listener
+      let showAlert = function () {
+        alert("Clicked!");
+      };
+      btn.addEventListener("click", showAlert);
+
+      // remove the event listener
+      btn.removeEventListener("click", showAlert);
+    </script>
+  </body>
+</html>
