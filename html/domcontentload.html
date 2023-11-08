@@ -1,30 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>JS DOMContentLoaded Event</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let btn = document.getElementById('btn');
-            btn.addEventListener('click', () => {
-                // handle the click event
-                console.log('clicked');
-            });
-        });
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <button id="btn">Click Me!</button>
+    <button id="btn">click me!</button>
+
     <script>
-        document.addEventListener("DOMContentLoaded",()=>{
-            let btn  = document.getElementById("btn");
-            btn.addEventListener("click",()=>{
+        document.addEventListener('DOMContentLoaded',()=>{
+            let btn = document.getElementById('btn');
+            btn.addEventListener('click',()=>{
                 console.log("button clicked")
-            })
-            
+            }
+            )
         })
     </script>
 </body>
-
 </html>
