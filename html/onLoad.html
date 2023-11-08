@@ -23,6 +23,17 @@ window.addEventListener("load",()=>{
         document.body.appendChild(log)
         log.src = "/html/logo.jpg"
     })
+
+    window.addEventListener("load",checkJSLoaded)
+
+    function checkJSLoaded(){
+        let script = document.createElement("script");
+        script.addEventListener("load",()=>{
+            console.log("script is loaded")
+        })
+        script.src = "/js/server.js"
+        document.body.appendChild(script)
+    }
        
     </script>
 </body>
