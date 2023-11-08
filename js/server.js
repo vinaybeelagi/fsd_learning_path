@@ -52,11 +52,11 @@
 // querySelectorAll()
 const items = document.querySelectorAll('.item')
 // // Use a "for" loop to iterate through the NodeList, starting from index 0.
-for(let i=0;i<items.length;i++){
+for (let i = 0; i < items.length; i++) {
     // Access each item within the NodeList by its index (i) and log its text content to the console.
-    console.log(items[i].textContent) 
+    console.log(items[i].textContent)
 }
-   
+
 
 
 console.log("welcome neoito")
