@@ -15,13 +15,15 @@
         })
         logo.src = "/html/logo.jpg"
         // here image is loaded by addeventlistener method
-
-        let log = document.createElement("img")
+window.addEventListener("load",()=>{
+     let log = document.createElement("img")
         log.addEventListener("load",()=>{
             console.log("logo has been loaded")
         })
         document.body.appendChild(log)
         log.src = "/html/logo.jpg"
+    })
+       
     </script>
 </body>
 </html>
