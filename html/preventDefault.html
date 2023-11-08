@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Default</title>
+</head>
+<body>
+    <a href="https://www.javascripttutorial.net/"> Javascripttutorial</a>
+    <script>
+        // Select the anchor element
+        let a = document.querySelector("a");
+    
+        // Add a click event listener to the anchor element
+        a.addEventListener("click", (event) => {
+            console.log("clicked");     // Log "clicked" to the console
+            event.preventDefault();     // Prevent the default behavior (navigating to the URL)
+            event.stopPropagation();    // Stop event propagation
+        });
+    
+        // Add a click event listener to the body element
+        document.body.addEventListener('click', function (event) {
+            console.log('The body was clicked!'); // Log "The body was clicked!" to the console
+        });
+    </script>
+    
+</body>
+</html>

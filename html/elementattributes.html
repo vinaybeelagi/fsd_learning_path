@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Attributes</title>
+</head>
+<body>
+    <input type="text" id="user" secured="true" />
+<input type="text" id="username" tabindex="1" />
+<script>
+    // Extracting attributes from the first input element
+    let input = document.querySelector("#user");
+    for (let e of input.attributes) {
+        console.log(`${e.name} = ${e.value}`);
+    }
+
+    // Attribute-Property Synchronization for the second input element
+    let input2 = document.querySelector("#username");
+
+    // Changing the 'tabindex' attribute and checking the 'tabIndex' property
+    input2.setAttribute('tabindex', 2);
+    console.log(input2.tabIndex);
+
+    // Changing the 'tabIndex' property and checking the 'tabindex' attribute
+    input2.tabIndex = 3;
+    console.log(input2.getAttribute("tabindex"));
+
+    // Changing the 'value' attribute and checking the 'value' property
+    input2.setAttribute("value", "guest");
+    console.log(input2.value);
+
+    // Changing the 'value' property and checking the 'value' attribute
+    input2.value = "admin2";
+    console.log(input2.getAttribute("value"));
+</script>
+
+</body>
+</html>
