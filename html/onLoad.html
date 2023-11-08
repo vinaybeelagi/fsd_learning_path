@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image load event</title>
-</head>
-<body>
-    <img id="logo" src="/fsd_learning_path/html/download.png" onload="console.log('Logo loaded!')"/>
+  </head>
+  <body>
+    <!-- <img id="logo" src="/fsd_learning_path/html/download.png" onload="console.log('Logo loaded!')"/>
     <script>
         window.addEventListener('load', () => {
             let logo = document.createElement('img');
@@ -16,6 +16,17 @@
             document.body.appendChild(logo);
             logo.src = "/fsd_learning_path/html/download.png";
         });
+    </script> -->
+    <script>
+      window.addEventListener('load',checkLoaded)
+      function checkLoaded(){
+      let script = document.createElement('script');
+      script.addEventListener('load',(event)=>{
+          console.log('server.js file has been loaded');
+              });
+              script.src = "/fsd_learning_path/js/server.js";
+              document.body.appendChild(script);
+          }
     </script>
-</body>
+  </body>
 </html>
