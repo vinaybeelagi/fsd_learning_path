@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Load </title>
+</head>
+<body>
+    <img id="logo" src="/html/logo.jpg" onload="console.log('Logo loaded!')">
+    <!-- image is loaded by using onload attribute within image tag -->
+    <script>
+        let logo = document.getElementById("logo");
+        logo.addEventListener("load",()=>{
+            console.log("logo has been loaded")
+        })
+        logo.src = "/html/logo.jpg"
+        // here image is loaded by addeventlistener method
+window.addEventListener("load",()=>{
+     let log = document.createElement("img")
+        log.addEventListener("load",()=>{
+            console.log("logo has been loaded")
+        })
+        document.body.appendChild(log)
+        log.src = "/html/logo.jpg"
+    })
+
+    window.addEventListener("load",checkJSLoaded)
+
+    function checkJSLoaded(){
+        let script = document.createElement("script");
+        script.addEventListener("load",()=>{
+            console.log("script is loaded")
+        })
+        script.src = "/js/server.js"
+        document.body.appendChild(script)
+    }
+       
+    </script>
+</body>
+</html>
