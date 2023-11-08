@@ -6,13 +6,16 @@
     <title>Image load event</title>
 </head>
 <body>
-    <img id="logo">
+    <img id="logo" src="/fsd_learning_path/html/download.png" onload="console.log('Logo loaded!')"/>
     <script>
-        let logo = document.querySelector('#logo');
-        logo.addEventListener('load',(event)=>{
-            console.log('Logo hos been loaded!');
+        window.addEventListener('load', () => {
+            let logo = document.createElement('img');
+            logo.addEventListener('load', (event) => {
+                console.log('logo has been loaded');
+            });
+            document.body.appendChild(logo);
+            logo.src = "/fsd_learning_path/html/download.png";
         });
-        logo.src="/fsd_learning_path/html/download.png"
     </script>
 </body>
 </html>

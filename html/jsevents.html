@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVENTS</title>
+    <title>JS events</title>
 </head>
 <body>
-<button id="btn"> click me!
-    </button>
+    <button id="btn">Click Me!</button>
     <script>
-        let btn = document.getElementById('btn');
-        btn.addEventListener('click',()=>{
-            alert('hi i m clicked')
+        let btn = document.getElementById("btn")
+        function display(){
+             alert(" hello its clicked")
             console.log(event.type)
-
-            })
-
-            
-        
+        }
+        btn.addEventListener("click",display)
     </script>
 </body>
 </html>
