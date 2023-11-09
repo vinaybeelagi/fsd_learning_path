@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Game Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .game-info {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #gameList {
+            margin-top: 30px;
+        }
+
+        .edit-btn, .remove-btn {
+            cursor: pointer;
+            color: #007BFF;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-info">
+        <label for="gameName">Game Name</label>
+        <input type="text" id="gameName" placeholder="Enter game name">
+    </div>
+
+    <div class="game-info">
+        <label for="gameLevel">Game Level</label>
+        <select id="gameLevel">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+
+    <button onclick="addGame()">Add</button>
+
+    <div id="gameList"></div>
+
+    <script>
+        function addGame() {
+            var gameName = document.getElementById("gameName").value;
+            var gameLevel = document.getElementById("gameLevel").value;
+
+            var newGameDiv = createGameDiv(gameName, gameLevel);
+
+            document.getElementById("gameList").appendChild(newGameDiv);
+
+            document.getElementById("gameName").value = "";
+            document.getElementById("gameLevel").value = "";
+        }
+
+        function createGameDiv(gameName, gameLevel) {
+            var newGameDiv = document.createElement("div");
+            newGameDiv.className = "game-info";
+
+            var gameNameLabel = document.createElement("label");
+            gameNameLabel.textContent = "Game Name";
+            newGameDiv.appendChild(gameNameLabel);
+
+            var gameNameText = document.createElement("input");
+            gameNameText.type = "text";
+            gameNameText.value = gameName;
+            newGameDiv.appendChild(gameNameText);
+
+            var gameLevelLabel = document.createElement("label");
+            gameLevelLabel.textContent = "Game Level";
+            newGameDiv.appendChild(gameLevelLabel);
+
+            var gameLevelText = document.createElement("p");
+            gameLevelText.textContent = gameLevel;
+            newGameDiv.appendChild(gameLevelText);
+
+            var editBtn = document.createElement("span");
+            editBtn.className = "edit-btn";
+            editBtn.textContent = "Edit";
+            editBtn.onclick = function () { editGame(gameNameText, gameLevelText); };
+            newGameDiv.appendChild(editBtn);
+
+            var removeBtn = document.createElement("span");
+            removeBtn.className = "remove-btn";
+            removeBtn.textContent = "Remove";
+            removeBtn.onclick = function () { removeGame(newGameDiv); };
+            newGameDiv.appendChild(removeBtn);
+
+            return newGameDiv;
+        }
+
+        function editGame(gameNameText, gameLevelText) {
+            gameNameText.disabled = false;
+            gameNameText.focus();
+            gameLevelText.style.display = "none";
+
+            // Create a new input for game level
+            var gameLevelInput = document.createElement("select");
+            gameLevelInput.innerHTML = '<option value="easy">Easy</option>' +
+                                       '<option value="medium">Medium</option>' +
+                                       '<option value="hard">Hard</option>';
+            gameLevelInput.value = gameLevelText.textContent;
+            gameLevelInput.onchange = function () {
+                gameLevelText.textContent = gameLevelInput.value;
+            };
+
+            // Insert the input after the hidden game level paragraph
+            gameLevelText.parentNode.insertBefore(gameLevelInput, gameLevelText.nextSibling);
+
+            // Listen for blur event to save changes when clicking outside the input
+            gameNameText.addEventListener("blur", function () {
+                gameNameText.disabled = true;
+                gameLevelText.style.display = "block";
+                gameLevelInput.parentNode.removeChild(gameLevelInput);
+            });
+        }
+
+        function removeGame(gameDiv) {
+            gameDiv.parentNode.removeChild(gameDiv);
+        }
+    </script>
+</body>
+</html>
