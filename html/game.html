@@ -39,68 +39,88 @@
     <div id="output"> </div>
     
     <script>
+        let editingGameInfo = null;
+
         function addGame() {
-            const gameName = document.getElementById('name').value;
+            const gameNameInput = document.getElementById('name');
             const gameLevel = document.getElementById('level').value;
 
+            if (!gameNameInput.value.trim()) {
+                alert('Please enter a game name.');
+                return;
+            }
+
             const output = document.getElementById('output');
+            const existingGameName = output.querySelector(`.game-info span:contains('${gameNameInput.value}')`);
 
-            // Create and append div for game name
-            const gameNameDiv = document.createElement('div');
-            gameNameDiv.className = 'game-info';
-            gameNameDiv.innerHTML = `
-                <span>Game Name: ${gameName}</span>
-                <button onclick="editGame(this)">Edit</button>
-                <button onclick="deleteGame(this)">Delete</button>
-            `;
-            output.appendChild(gameNameDiv);
+            if (editingGameInfo) {
+                // Update existing game info
+                editingGameInfo.querySelector('span').textContent = `Game Name: ${gameNameInput.value}`;
+                editingGameInfo.nextElementSibling.textContent = `Game Level: ${gameLevel}`;
+                editingGameInfo = null;
+                document.getElementById('content').reset();
+                document.querySelector('button').textContent = 'Add';
+            } else if (existingGameName) {
+                // Update existing game name and level directly
+                const gameLevelDiv = existingGameName.parentElement.nextElementSibling;
+                existingGameName.textContent = `Game Name: ${gameNameInput.value}`;
+                gameLevelDiv.textContent = `Game Level: ${gameLevel}`;
+                document.getElementById('content').reset();
+            } else {
+                // Create and append div for game name
+                const gameNameDiv = document.createElement('div');
+                gameNameDiv.className = 'game-info';
+                gameNameDiv.innerHTML = `
+                    <span>Game Name: ${gameNameInput.value}</span>
+                    <button onclick="editGame(this)">Edit</button>
+                    <button onclick="deleteGame(this)">Delete</button>
+                `;
+                output.appendChild(gameNameDiv);
 
-            // Create and append div for game level
-            const gameLevelDiv = document.createElement('div');
-            gameLevelDiv.className = 'game-info';
-            gameLevelDiv.textContent = `Game Level: ${gameLevel}`;
-            output.appendChild(gameLevelDiv);
+                // Create and append div for game level
+                const gameLevelDiv = document.createElement('div');
+                gameLevelDiv.className = 'game-info';
+                gameLevelDiv.textContent = `Game Level: ${gameLevel}`;
+                output.appendChild(gameLevelDiv);
 
-            document.getElementById('content').reset();
+                document.getElementById('content').reset();
+            }
         }
 
-       
         function editGame(button) {
-                const gameInfoDiv = button.parentElement;
-                const gameNameSpan = gameInfoDiv.querySelector('span');
-                const gameNameInput = document.getElementById('name');
+            const gameInfoDiv = button.parentElement;
+            const gameNameSpan = gameInfoDiv.querySelector('span');
+            const gameNameInput = document.getElementById('name');
 
-                // Set input box value to current game name
-                gameNameInput.value = gameNameSpan.textContent.replace('Game Name: ', '');
+            // Set input box value to current game name
+            gameNameInput.value = gameNameSpan.textContent.replace('Game Name: ', '');
 
-                // Change the "Add" button to "Update"
-                document.querySelector('button').textContent = 'Update';
+            // Change the "Add" button to "Update"
+            document.querySelector('button').textContent = 'Update';
 
-                // Set editingGameInfo to the current game info div
-                editingGameInfo = gameInfoDiv;
-            }
+            // Set editingGameInfo to the current game info div
+            editingGameInfo = gameInfoDiv;
+        }
 
+        function deleteGame(button) {
+            const gameInfoDiv = button.parentElement;
+            const output = document.getElementById('output');
 
-          
-            function deleteGame(button) {
-                const gameInfoDiv = button.parentElement;
-                const output = document.getElementById('output');
+            // Find and remove corresponding game level div
+            const gameLevelDiv = gameInfoDiv.nextElementSibling;
+            output.removeChild(gameInfoDiv);
+            output.removeChild(gameLevelDiv);
 
-                // Find and remove corresponding game level div
-                const gameLevelDiv = gameInfoDiv.nextElementSibling;
-                output.removeChild(gameInfoDiv);
-                output.removeChild(gameLevelDiv);
+            // Reset editingGameInfo and button text when deleting
+            editingGameInfo = null;
+            document.querySelector('button').textContent = 'Add';
+        }
 
-                // Reset editingGameInfo and button text when deleting
-                editingGameInfo = null;
-                document.querySelector('button').textContent = 'Add';
-            }
+        // Custom jQuery-like :contains selector
+        HTMLElement.prototype.containsText = function(text) {
+            return this.innerText.includes(text);
+        };
 
-            // Custom jQuery-like :contains selector
-            HTMLElement.prototype.containsText = function(text) {
-                return this.innerText.includes(text);
-            };
-       
     </script>
 </div>
 </body>
