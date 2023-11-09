@@ -1,5 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content" class="main red">JavaScript classList</div>
+
+    <script>
+      // Select the HTML element with the id "content" and store it in the variable 'div'
+      let div = document.querySelector("#content");
+
+      // Add the CSS classes "info," "small," and "large" to the 'div' element
+      div.classList.add("info", "small", "large");
+
+      // Remove the CSS classes "small" and "large" from the 'div' element
+      div.classList.remove("small", "large");
+
+      // Replace the CSS class "info" with "large" in the 'div' element's class list
+      div.classList.replace("info", "large");
+
+      // Toggle the presence of the CSS class "visible" in the 'div' element's class list
+      div.classList.toggle("visible");
+
+      // Check if the 'div' element's class list contains the CSS class "warning" and store the result in a variable (will be false in this case)
+      div.classList.contains("warning");
+
+      // Loop through each CSS class in the 'div' element's class list and log them to the console
+      for (let cssClass of div.classList) {
+        console.log(cssClass);
+      }
+    </script>
+  </body>
+</html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
