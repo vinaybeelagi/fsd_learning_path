@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        .game-info {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Game Info Form</title>
+</head>
+<body>
+    <div id="container">
+    <form id="content">
+        <label for="name">Game_Name:</label>
+		<input type="text" id="name" name="name" placeholder="Enter game name" />
+        <label for="level">Game_level:</label>
+        <select name="levels" id="level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="expert">Expert</option>
+        </select>
+        <button type="button" onclick="addGame()">Add</button>
+    </form>
+    <div id="output"> </div>
+    
+    <script>
+        function addGame() {
+            const gameName = document.getElementById('name').value;
+            const gameLevel = document.getElementById('level').value;
+
+            const output = document.getElementById('output');
+
+            // Create and append div for game name
+            const gameNameDiv = document.createElement('div');
+            gameNameDiv.className = 'game-info';
+            gameNameDiv.innerHTML = `
+                <span>Game Name: ${gameName}</span>
+                <button onclick="editGame(this)">Edit</button>
+                <button onclick="deleteGame(this)">Delete</button>
+            `;
+            output.appendChild(gameNameDiv);
+
+            // Create and append div for game level
+            const gameLevelDiv = document.createElement('div');
+            gameLevelDiv.className = 'game-info';
+            gameLevelDiv.textContent = `Game Level: ${gameLevel}`;
+            output.appendChild(gameLevelDiv);
+
+            document.getElementById('content').reset();
+        }
+
+       
+        function editGame(button) {
+                const gameInfoDiv = button.parentElement;
+                const gameNameSpan = gameInfoDiv.querySelector('span');
+                const gameNameInput = document.getElementById('name');
+
+                // Set input box value to current game name
+                gameNameInput.value = gameNameSpan.textContent.replace('Game Name: ', '');
+
+                // Change the "Add" button to "Update"
+                document.querySelector('button').textContent = 'Update';
+
+                // Set editingGameInfo to the current game info div
+                editingGameInfo = gameInfoDiv;
+            }
+
+
+          
+            function deleteGame(button) {
+                const gameInfoDiv = button.parentElement;
+                const output = document.getElementById('output');
+
+                // Find and remove corresponding game level div
+                const gameLevelDiv = gameInfoDiv.nextElementSibling;
+                output.removeChild(gameInfoDiv);
+                output.removeChild(gameLevelDiv);
+
+                // Reset editingGameInfo and button text when deleting
+                editingGameInfo = null;
+                document.querySelector('button').textContent = 'Add';
+            }
+
+            // Custom jQuery-like :contains selector
+            HTMLElement.prototype.containsText = function(text) {
+                return this.innerText.includes(text);
+            };
+       
+    </script>
+</div>
+</body>
+</html>
+
+
+
+
