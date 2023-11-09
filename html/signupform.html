@@ -40,13 +40,17 @@
             border-radius: 3px;
             cursor: pointer;
         }
+
+        #output {
+            margin-top: 20px;
+        }
     </style>
     <title>Sign Up Form</title>
 </head>
 <body>
     <div id="signup-form">
         <h2>Sign Up</h2>
-        <form id="signupForm">
+        <form id="signupForm" action="/submit" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -55,6 +59,8 @@
 
             <button type="button" onclick="submitForm()">Sign Up</button>
         </form>
+
+        <div id="output"></div>
     </div>
 
     <script>
@@ -69,11 +75,13 @@
                 return;
             }
 
-            // Log form values to the console (replace with your form submission logic)
-            console.log('Name:', name);
-            console.log('Email:', email);
-
-            // You can add your form submission logic here
+            // Display the results in the output div
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `
+                <h3>Form Submission Result</h3>
+                <p>Name: ${name}</p>
+                <p>Email: ${email}</p>
+            `;
 
             // Optionally, reset the form
             document.getElementById('signupForm').reset();
