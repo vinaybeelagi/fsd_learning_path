@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Radio Button</title>
+</head>
+<body>
+    <p>Select your size:</p>
+    <div id="group">
+    </div>
+    <p id="output"></p>
+
+    <script>
+        const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+        const group = document.querySelector("#group");
+
+        for (let i = 0; i < sizes.length; i++) {
+            const size = sizes[i];
+
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'size';
+            radio.value = size;
+            radio.id = size;
+
+            const label = document.createElement('label');
+            label.htmlFor = size;
+            label.textContent = size;
+
+            group.appendChild(radio);
+            group.appendChild(label);
+
+            radio.addEventListener('change', function() {
+                if (radio.checked) {
+                    document.querySelector('#output').textContent = `You selected ${size}`;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
