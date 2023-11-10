@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkboxes and Checked Items</title>
+</head>
+<body>
+
+<label>
+  <input type="checkbox" class="myCheckbox" value="Option1"> Option 1
+</label>
+
+<label>
+  <input type="checkbox" class="myCheckbox" value="Option2"> Option 2
+</label>
+
+<label>
+  <input type="checkbox" class="myCheckbox" value="Option3"> Option 3
+</label>
+
+<label>
+  <input type="checkbox" class="myCheckbox" value="Option4"> Option 4
+</label>
+
+<div id="checkedItems">
+  <h3>Checked Items:</h3>
+  <p>No items checked.</p>
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.myCheckbox');
+  const checkedItems = document.getElementById('checkedItems').querySelector('p');
+
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      const checked = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
+      checkedItems.textContent = checked.length > 0 ? "Checked items: " + checked.join(', ') : "No items checked.";
+    });
+  });
+</script>
+
+</body>
+</html>
