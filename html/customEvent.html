@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,3 +23,27 @@
     </script>
   </body>
 </html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = 5;
+        const event = new CustomEvent("start",{
+            detail:{
+                platform:"GeeksforGeeks"
+            }
+        })
+        document.addEventListener("start",(e)=>{
+            console.log(`the event is triggered on ${e.detail.platform}`)
+        })
+        if(x===5){
+            document.dispatchEvent(event)
+        }
+    </script>
+</body>
+</html>
+

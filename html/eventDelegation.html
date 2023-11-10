@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Even Delegation</title>
+
+    <title>Event Delegation</title>
+
 </head>
 <body>
     <ul id="menu">
@@ -12,6 +16,7 @@
         <li><a id="report">report</a></li>
     </ul>
     <script>
+
         let menu = document.querySelector('#menu');
         menu.addEventListener('click',(event)=>{
         let target = event.target;
@@ -28,6 +33,21 @@
                 break;
         }
         });
+
+        let menu = document.getElementById("menu");
+        menu.addEventListener("click",(e)=>{
+            let target = e.target.id;
+           
+            switch(target){
+                case 'home':console.log("Home is clicked")
+                break;
+                case 'dashboard':console.log("dashboard is clicked")
+                break;
+                case 'report':console.log("report is clicked")
+            }
+        })
+      
+
     </script>
 </body>
 </html>
